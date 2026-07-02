@@ -1,16 +1,29 @@
+import Image from 'next/image';
 import React from 'react';
-import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
     return (
-        <div>
-            <h2>This is Navbar</h2>
-            <div className="flex items-center gap-4">
-                {/* Other nav items */}
-                <ThemeToggle />
+        <nav>
+            <div>
+
+                {/* Right Side */}
+
+                <div>
+                    <Image
+                        src={"/assets/StudyNook.png"}
+                        alt='Logo'
+                        width={170}
+                        height={170}
+                    ></Image>
+
+                </div>
+
+                {/* Center */}
+
+                {/* Left Side */}
 
             </div>
-        </div>
+        </nav>
     );
 };
 
