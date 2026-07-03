@@ -1,13 +1,21 @@
+import Image from "next/image";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="bg-black/80 text-gray-400 px-6 md:px-16 pt-12 pb-10">
+        <footer className="bg-black dark:bg-black/50 text-gray-400 px-6 md:px-16 pt-12 pb-10">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
-                    <h1 className="text-6xl md:text-7xl font-bold text-white">
+                    <Image
+                        className="w-42 h-20 md:w-54 md:h-24"
+                        src={"/assets/FooterImage.png"}
+                        alt="Footer-Image"
+                        width={700}
+                        height={700}
+                    ></Image>
+                    {/* <h1 className="text-6xl md:text-7xl font-bold text-white">
                         StudyNook
-                    </h1>
+                    </h1> */}
                     <p className="mt-4 max-w-xl">
                         Find and reserve quiet study spaces anytime. StudyNook helps students discover, book, and manage library study rooms with ease.
                     </p>

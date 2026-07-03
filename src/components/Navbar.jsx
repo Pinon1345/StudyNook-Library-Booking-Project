@@ -17,23 +17,29 @@ const Navbar = () => {
 
                 {/* Right Side (Logo) */}
 
-                <div className="flex items-center gap-1">
-                    <Image
-                        className="w-18 h-18 rounded-3xl"
-                        src={"/assets/StudyNook2.png"}
-                        alt="Logo"
-                        width={170}
-                        height={170}
-                    />
+                <Link
+                    href={"/"}
+                    className="block"
+                >
+                    <div className="flex items-center gap-1">
+                        <Image
+                            className="w-18 h-18 rounded-3xl animate-logo-float cursor-pointer"
+                            src={"/assets/StudyNook2.png"}
+                            alt="Logo"
+                            width={170}
+                            height={170}
+                        />
 
-                    <Image
-                        className="w-46 h-14"
-                        src={"/assets/fontTextLogo.png"}
-                        alt="Text-Logo"
-                        width={700}
-                        height={700}
-                    />
-                </div>
+                        <Image
+                            className="w-46 h-14 animate-text-scale cursor-pointer"
+                            src={"/assets/fontTextLogo.png"}
+                            alt="Text-Logo"
+                            width={700}
+                            height={700}
+                        />
+                    </div>
+                </Link>
+
 
                 {/* Center - Desktop Only */}
 

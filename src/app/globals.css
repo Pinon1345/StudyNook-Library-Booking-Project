@@ -30,6 +30,57 @@ Dark: #F8FAFC
 */
 
 
+/* Navbar Text Animation */
+
+@keyframes textScale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-text-scale {
+  animation: textScale 3s ease-in-out infinite;
+}
+
+
+
+/* Navbar Logo Animation */
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(-2px) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.animate-logo-float {
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+
 
 
 
