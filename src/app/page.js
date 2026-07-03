@@ -1,10 +1,16 @@
 
-import Image from "next/image";
+import Banner from "@/components/banner/Banner";
+import HowItWorks from "@/components/HowItWorks";
+import WhyStudyNook from "@/components/WhyStudyNook";
 
 export default function Home() {
   return (
     <div>
-      Home page
+
+      <Banner></Banner>
+      <WhyStudyNook></WhyStudyNook>
+      <HowItWorks></HowItWorks>
+
     </div>
   );
 }

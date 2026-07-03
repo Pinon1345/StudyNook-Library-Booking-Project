@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
                     <Image
-                        className="w-42 h-20 md:w-54 md:h-24"
+                        className="w-42 h-20 md:w-54 md:h-24 animate-logo-float"
                         src={"/assets/FooterImage.png"}
                         alt="Footer-Image"
                         width={700}

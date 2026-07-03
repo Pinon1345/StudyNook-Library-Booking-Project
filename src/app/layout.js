@@ -4,6 +4,15 @@ import ThemeProvider from "@/components/providers/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "animate.css";
+
+
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

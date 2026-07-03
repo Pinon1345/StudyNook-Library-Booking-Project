@@ -30,24 +30,36 @@ Dark: #F8FAFC
 */
 
 
-/* Navbar Text Animation */
+/* Banner Swipper Styles */
 
-@keyframes textScale {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.03);
-  }
-
-  100% {
-    transform: scale(1);
+/* Hide Swiper navigation arrows on mobile only */
+@media (max-width: 767px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
   }
 }
 
+
+
+/* Navbar Text Animation */
+
+@keyframes textScale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 .animate-text-scale {
-  animation: textScale 3s ease-in-out infinite;
+    animation: textScale 3s ease-in-out infinite;
 }
 
 
@@ -55,29 +67,29 @@ Dark: #F8FAFC
 /* Navbar Logo Animation */
 
 @keyframes logoFloat {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
 
-  25% {
-    transform: translateY(-2px) rotate(-2deg);
-  }
+    25% {
+        transform: translateY(-2px) rotate(-2deg);
+    }
 
-  50% {
-    transform: translateY(-4px) rotate(0deg);
-  }
+    50% {
+        transform: translateY(-4px) rotate(0deg);
+    }
 
-  75% {
-    transform: translateY(-2px) rotate(2deg);
-  }
+    75% {
+        transform: translateY(-2px) rotate(2deg);
+    }
 
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 }
 
 .animate-logo-float {
-  animation: logoFloat 3s ease-in-out infinite;
+    animation: logoFloat 3s ease-in-out infinite;
 }
 
 
@@ -90,82 +102,31 @@ Dark: #F8FAFC
 /* Base Button */
 
 .btn {
-    @apply inline-flex items-center justify-center gap-2
-    rounded-xl
-    px-5 py-3
-    text-sm md:text-base
-    font-semibold
-    whitespace-nowrap
-    select-none
-    cursor-pointer
-    transition-all
-    duration-300
-    ease-out
-    active:scale-95
-    disabled:pointer-events-none
-    disabled:opacity-60;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm md:text-base font-semibold whitespace-nowrap select-none cursor-pointer transition-all duration-300 ease-out active:scale-95 disabled:pointer-events-none disabled:opacity-60;
 }
 
 /* Primary Button */
 
 .btn-primary {
-    @apply bg-emerald-600
-    text-white
-    shadow-md
-    shadow-emerald-600/20
-    hover:bg-emerald-700
-    hover:shadow-xl
-    hover:shadow-emerald-500/30
-    focus-visible:outline-none
-    focus-visible:ring-4
-    focus-visible:ring-emerald-500/30
-    dark:bg-emerald-500
-    dark:hover:bg-emerald-400;
+    @apply bg-emerald-600 text-white shadow-md shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-500/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/30 dark:bg-emerald-500 dark:hover:bg-emerald-400;
 }
 
 /* Secondary Button */
 
 .btn-secondary {
-    @apply bg-slate-800
-    text-white
-    shadow-md
-    hover:bg-slate-700
-    hover:shadow-xl
-    focus-visible:outline-none
-    focus-visible:ring-4
-    focus-visible:ring-slate-500/30
-    dark:bg-slate-700
-    dark:hover:bg-slate-600;
+    @apply bg-slate-800 text-white shadow-md hover:bg-slate-700 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-500/30 dark:bg-slate-700 dark:hover:bg-slate-600 px-8 py-4;
 }
 
 /* Outline Button */
 
 .btn-outline {
-    @apply border-2
-    border-emerald-600
-    bg-transparent
-    text-emerald-600
-    hover:bg-emerald-600
-    hover:text-white
-    hover:shadow-lg
-    hover:shadow-emerald-500/20
-    focus-visible:outline-none
-    focus-visible:ring-4
-    focus-visible:ring-emerald-500/30
-    dark:border-emerald-400
-    dark:text-emerald-400
-    dark:hover:bg-emerald-500
-    dark:hover:text-white;
+    @apply border-2 border-emerald-600 bg-transparent text-emerald-600 hover:bg-emerald-600 hover:text-white hover:shadow-lg hover:shadow-emerald-500/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/30 dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-500 dark:hover:text-white;
 }
 
 /* Ghost Button */
 
 .btn-ghost {
-    @apply bg-transparent
-    text-slate-700
-    hover:bg-slate-100
-    dark:text-slate-200
-    dark:hover:bg-slate-800;
+    @apply bg-transparent text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800;
 }
 
 /* Button Sizes */
