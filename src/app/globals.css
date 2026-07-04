@@ -34,10 +34,11 @@ Dark: #F8FAFC
 
 /* Hide Swiper navigation arrows on mobile only */
 @media (max-width: 767px) {
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none !important;
-  }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none !important;
+    }
 }
 
 
@@ -110,6 +111,15 @@ Dark: #F8FAFC
 .btn-primary {
     @apply bg-emerald-600 text-white shadow-md shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-500/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/30 dark:bg-emerald-500 dark:hover:bg-emerald-400;
 }
+
+
+/* Special Customize Primary Button */
+
+
+.btn-primary-special {
+    @apply bg-emerald-600 text-white shadow-md shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-500/30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/30 dark:bg-emerald-500 dark:hover:bg-emerald-400 px-8 py-6 rounded-xl border-b-4 border-emerald-900 dark:border-emerald-100;
+}
+
 
 /* Secondary Button */
 

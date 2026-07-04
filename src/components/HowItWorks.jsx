@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Chip } from '@heroui/react';
+import { Button, Chip } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 import { FaBookOpenReader, FaCalendarDays } from 'react-icons/fa6';
 import { ImSearch } from 'react-icons/im';
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
 const HowItWorks = () => {
 
@@ -36,7 +38,7 @@ const HowItWorks = () => {
     };
 
     return (
-        <div className='container w-11/12 mx-auto pt-6 pb-10'>
+        <div className='container w-11/12 mx-auto flex flex-col items-center justify-center pt-6 pb-10'>
             <h2 className='font-bold text-4xl md:text-5xl text-emerald-600 text-center mt-4'>How It Works</h2>
             <p className='font-bold text-lg md:text-xl text-center text-slate-400 pt-4 pb-2'>Book your ideal study room in just three simple steps.</p>
 
@@ -134,7 +136,27 @@ const HowItWorks = () => {
 
             </motion.div>
 
-        </div >
+            {/* All room linkage Button */}
+
+            <div className="mt-10 pt-6 mb-6">
+
+                <Link
+                    href={"/all-rooms"}
+                    className="block"
+                >
+
+                    <Button
+                        size="lg"
+                        className="flex items-center gap-1 w-full btn btn-primary-special btn-float">
+                        <h2 className="text-xl">START BROWSING</h2>
+                        <FaArrowRight className="w-5 h-5 mt-1"></FaArrowRight>
+                    </Button>
+
+                </Link>
+
+            </div>
+
+        </div>
     );
 };
 
