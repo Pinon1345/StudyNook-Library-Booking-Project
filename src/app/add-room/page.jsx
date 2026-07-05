@@ -1,6 +1,8 @@
 "use client";
 
 import { Button, Card, FieldError, Input, Label, ListBox, TextArea, TextField, Select, Checkbox, CheckboxGroup } from '@heroui/react';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -40,6 +42,7 @@ const AddRoomPage = () => {
 
         if (data) {
             toast.success("Congratulations! Successfully added room!")
+            redirect("/all-rooms")
         }
         else {
             toast.error("Ahh! Failed to added room! Please try again later.")
@@ -260,6 +263,7 @@ const AddRoomPage = () => {
 
                     {/* Buttons */}
 
+
                     <Button
                         type="submit"
                         variant="outline"
@@ -269,6 +273,8 @@ const AddRoomPage = () => {
                         <h2 className='font-bold text-lg pt-1'>Add Library Room</h2>
                         {/* {isPending ? "Adding Room..." : "Add Library Room"} */}
                     </Button>
+
+
 
                 </form>
             </Card>

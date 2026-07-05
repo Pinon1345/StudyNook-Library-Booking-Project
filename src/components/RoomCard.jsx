@@ -9,7 +9,17 @@ import { TiArrowRightOutline } from 'react-icons/ti';
 
 const RoomCardPage = ({ room }) => {
 
-    const { _id, roomName, description, floor, capacity, price, duration, imageUrl, amenities } = room;
+    const {
+        _id,
+        roomName,
+        description,
+        floor,
+        capacity,
+        price,
+        duration,
+        imageUrl,
+        amenities
+    } = room || {};
 
 
     return (
@@ -82,7 +92,7 @@ const RoomCardPage = ({ room }) => {
                 {/* Button */}
 
                 <Link
-                    href={"/room"}
+                    href={`/all-rooms/${_id}`}
                     className='block mt-2'
                 >
                     <Button
