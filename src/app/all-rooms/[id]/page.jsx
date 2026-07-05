@@ -1,3 +1,4 @@
+import { EditModal } from '@/components/EditModal';
 import { Avatar, Button, Chip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -102,12 +103,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                         <div className='flex items-center justify-between mx-2 gap-4 mt-4 mb-2'>
 
-                            <Button
-                                className="flex items-center gap-1 btn btn-secondary-edit w-full"
-                            >
-                                <MdModeEditOutline></MdModeEditOutline>
-                                <h2>Edit</h2>
-                            </Button>
+                            <EditModal></EditModal>
 
                             <Button
                                 className="flex items-center gap-1 btn btn-secondary-delete w-full"
