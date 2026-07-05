@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "animate.css";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
 
           <main>
             {children}
+            <Toaster></Toaster>
           </main>
 
           <Footer></Footer>

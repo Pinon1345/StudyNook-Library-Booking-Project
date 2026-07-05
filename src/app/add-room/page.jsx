@@ -3,9 +3,51 @@
 import { Button, Card, FieldError, Input, Label, ListBox, TextArea, TextField, Select, Checkbox, CheckboxGroup } from '@heroui/react';
 
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { GiCheckMark } from 'react-icons/gi';
 
 const AddRoomPage = () => {
+
+    const [amenitiesError, setAmenitiesError] = useState("");
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        if (selectedAmenities.length === 0) {
+            setAmenitiesError("Please select at least one amenity.");
+            return;
+        }
+
+        setAmenitiesError("");
+
+        const formData = new FormData(e.currentTarget);
+        const room = Object.fromEntries(formData.entries());
+
+        room.amenities = selectedAmenities;
+
+        console.log(room);
+
+        const res = await fetch("http://localhost:5000/room", {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+
+            body: JSON.stringify(room)
+        })
+
+        const data = await res.json()
+
+        if (data) {
+            toast.success("Congratulations! Successfully added room!")
+        }
+        else {
+            toast.error("Ahh! Failed to added room! Please try again later.")
+        }
+
+        console.log(data)
+
+    };
 
     const [selectedAmenities, setSelectedAmenities] = useState([]);
 
@@ -33,10 +75,11 @@ const AddRoomPage = () => {
 
     return (
         <div className='p-5 max-w-5xl mx-auto'>
-            <h2 className='font-bold text-3xl text-center text-emerald-600 mt-4 mb-2 pb-2'>ADD ROOM FORM</h2>
+            <h2 className='font-bold text-3xl text-center text-emerald-600 mt-4 mb-2 pb-2'>ADD STUDY ROOM FORM</h2>
 
             <Card className='mt-8 mb-10 shadow-md dark:border-2 dark:border-slate-600 dark:shadow-md dark:shadow-slate-500'>
                 <form
+                    onSubmit={onSubmit}
                     className="p-10 space-y-8"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -46,7 +89,7 @@ const AddRoomPage = () => {
                         <div className="md:col-span-2">
                             <TextField name="roomName" isRequired>
                                 <Label>Room Name</Label>
-                                <Input placeholder="Atrium Reading Nook" className="rounded-2xl mt-1 dark:bg-slate-800" />
+                                <Input placeholder="Atrium Reading Nook" className="rounded-2xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]" />
                                 <FieldError />
                             </TextField>
                         </div>
@@ -58,7 +101,7 @@ const AddRoomPage = () => {
                                 <Label>Description</Label>
                                 <TextArea
                                     placeholder="e.g., A quiet and comfortable study room..."
-                                    className="rounded-3xl mt-1 dark:bg-slate-800"
+                                    className="rounded-3xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]"
                                 />
                                 <FieldError />
                             </TextField>
@@ -75,7 +118,7 @@ const AddRoomPage = () => {
                                 placeholder="Select Floor"
                             >
                                 <Label>Floor</Label>
-                                <Select.Trigger className="rounded-2xl mt-1 dark:bg-slate-800">
+                                <Select.Trigger className="rounded-2xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]">
                                     <Select.Value />
                                     <Select.Indicator />
                                 </Select.Trigger>
@@ -117,7 +160,7 @@ const AddRoomPage = () => {
                             <Input
                                 type="number"
                                 placeholder="4"
-                                className="rounded-2xl mt-1 dark:bg-slate-800"
+                                className="rounded-2xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]"
                             />
                             <FieldError />
                         </TextField>
@@ -128,8 +171,8 @@ const AddRoomPage = () => {
                             <Label>Hourly Rate (USD)</Label>
                             <Input
                                 type="number"
-                                placeholder="10"
-                                className="rounded-2xl mt-1 dark:bg-slate-800"
+                                placeholder="$ 10/hr"
+                                className="rounded-2xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]"
                             />
                             <FieldError />
                         </TextField>
@@ -140,7 +183,7 @@ const AddRoomPage = () => {
                             <Label>Duration</Label>
                             <Input
                                 placeholder="3 Hours"
-                                className="rounded-2xl mt-1 dark:bg-slate-800"
+                                className="rounded-2xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]"
                             />
                             <FieldError />
                         </TextField>
@@ -154,7 +197,7 @@ const AddRoomPage = () => {
                                 <Input
                                     type="url"
                                     placeholder="https://example.com/atrium-reading-nook.jpg"
-                                    className="rounded-2xl mt-1 dark:bg-slate-800"
+                                    className="rounded-2xl mt-1 dark:bg-slate-800 bg-[#F8FAFC]"
                                 />
                                 <FieldError />
                             </TextField>
@@ -163,42 +206,52 @@ const AddRoomPage = () => {
                         {/* Amenities */}
 
                         <div className="md:col-span-2 pb-4">
-                            <TextField name='amenities' isRequired>
 
-                                <Label className="mb-4 block font-semibold text-lg">
-                                    Amenities
-                                </Label>
 
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                    {amenities.map((item) => (
-                                        <label
-                                            key={item}
-                                            className="flex items-center gap-3 cursor-pointer"
+                            <Label className="mb-4 block font-semibold text-lg">
+                                Amenities
+                            </Label>
+
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                {amenities.map((item) => (
+                                    <label
+                                        key={item}
+                                        className="flex items-center gap-3 cursor-pointer"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            name="amenities"
+                                            value={item}
+                                            checked={selectedAmenities.includes(item)}
+                                            onChange={() => toggleAmenity(item)}
+                                            className="hidden"
+                                        />
+
+                                        <div
+                                            className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200    ${selectedAmenities.includes(item)
+                                                ? "bg-emerald-600 border-emerald-600"
+                                                : "border-gray-400 dark:border-gray-500"
+                                                }`}
                                         >
-                                            <input
-                                                type="checkbox"
-                                                checked={selectedAmenities.includes(item)}
-                                                onChange={() => toggleAmenity(item)}
-                                                className="hidden"
-                                            />
+                                            {selectedAmenities.includes(item) && (
+                                                <span className="text-white text-xs font-bold"><GiCheckMark></GiCheckMark></span>
+                                            )}
+                                        </div>
 
-                                            <div
-                                                className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200    ${selectedAmenities.includes(item)
-                                                    ? "bg-emerald-600 border-emerald-600"
-                                                    : "border-gray-400 dark:border-gray-500"
-                                                    }`}
-                                            >
-                                                {selectedAmenities.includes(item) && (
-                                                    <span className="text-white text-xs font-bold"><GiCheckMark></GiCheckMark></span>
-                                                )}
-                                            </div>
+                                        <span className="text-sm">{item}</span>
+                                    </label>
+                                ))}
 
-                                            <span className="text-sm">{item}</span>
-                                        </label>
-                                    ))}
-                                </div>
+                                {/* Error Message */}
 
-                            </TextField>
+                                {amenitiesError && (
+                                    <p className="mt-2 text-sm text-red-500">
+                                        {amenitiesError}
+                                    </p>
+                                )}
+
+                            </div>
+
 
                         </div>
 
