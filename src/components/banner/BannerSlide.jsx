@@ -35,14 +35,14 @@ export default function BannerSlide({ slide }) {
 
                     <div className="mt-8 mb-4 flex flex-col md:flex-row items-center gap-5">
                         <Link
-                            href="/rooms"
+                            href="/all-rooms"
                             className="rounded-xl bg-emerald-600 flex items-center gap-2 px-8 py-4 font-bold transition hover:bg-emerald-700 animate__animated animate__zoomIn animate__delay-2s"
                         >
                             {slide.btn}
                             <FaArrowRightLong className="w-5 h-5 pt-0.5"></FaArrowRightLong>
                         </Link>
                         <Link
-                            href="/rooms"
+                            href="/"
                             className="btn btn-secondary font-semibold transition hover:bg-emerald-700 animate__animated animate__zoomIn animate__delay-2s"
                         >
                             {slide.btn2}

@@ -1,3 +1,4 @@
+import { DeleteAlertDialogue } from '@/components/DeleteAlertDialogue';
 import { EditModal } from '@/components/EditModal';
 import { Avatar, Button, Chip } from '@heroui/react';
 import Image from 'next/image';
@@ -103,14 +104,13 @@ const RoomDetailsPage = async ({ params }) => {
 
                         <div className='flex items-center justify-between mx-2 gap-4 mt-4 mb-2'>
 
-                            <EditModal></EditModal>
+                            {/* Edit Button */}
 
-                            <Button
-                                className="flex items-center gap-1 btn btn-secondary-delete w-full"
-                            >
-                                <MdDeleteForever></MdDeleteForever>
-                                <h2>Delete</h2>
-                            </Button>
+                            <EditModal room={room}></EditModal>
+
+                            {/* Delete Button */}
+
+                            <DeleteAlertDialogue room={room}></DeleteAlertDialogue>
 
                         </div>
 
@@ -118,7 +118,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                     <div className='mt-10 bg-[#FFFFFF] dark:bg-[#1E293B] p-4 rounded-2xl shadow-lg shadow-gray-400 px-6'>
                         <p className='text-sm font-bold text-gray-400 dark:text-gray-600'>LISTED BY</p>
-                        <div className='flex items-center gap-2 mt-2'>
+                        <div className='flex items-center gap-2 mt-3 mb-2'>
                             <Avatar>
                                 <Avatar.Image alt="John Doe" src="https://img.heroui.chat/image/avatar?w=400&h=400&u=3" />
                                 <Avatar.Fallback>JD</Avatar.Fallback>
@@ -126,7 +126,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                             <div>
                                 <h2 className='font-bold text-xl text-emerald-900 dark:text-emerald-600'>Guest Scholar</h2>
-                                <p className='text-gray-600 dark:text-gray-400'>guest.google@studynook.demo</p>
+                                <p className='text-gray-600 dark:text-gray-400 text-sm'>guest.google@studynook.demo</p>
                             </div>
 
                         </div>
