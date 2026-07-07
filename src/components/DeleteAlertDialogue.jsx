@@ -1,10 +1,36 @@
 "use client";
 
 import { AlertDialog, Button } from "@heroui/react";
+import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 import { MdDeleteForever } from "react-icons/md";
 
 export function DeleteAlertDialogue({ room }) {
-    const { roomName } = room
+    const { _id, roomName } = room
+
+    const handleDelete = async () => {
+        const res = await fetch(`http://localhost:5000/room/${_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+
+        const data = await res.json()
+
+        console.log(data);
+
+        if (data) {
+            toast.success("Successfully Delete Room!")
+            redirect('/all-rooms')
+        }
+
+        else {
+            toast.error("Delete Room Failed! Please try again later.")
+        }
+
+    }
+
     return (
         <AlertDialog>
 
@@ -33,7 +59,7 @@ export function DeleteAlertDialogue({ room }) {
                             <Button slot="close" variant="tertiary">
                                 Cancel
                             </Button>
-                            <Button slot="close" variant="danger">
+                            <Button onClick={handleDelete} slot="close" variant="danger">
                                 Delete Room
                             </Button>
                         </AlertDialog.Footer>

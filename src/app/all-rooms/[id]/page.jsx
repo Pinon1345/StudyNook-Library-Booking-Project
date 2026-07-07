@@ -58,7 +58,7 @@ const RoomDetailsPage = async ({ params }) => {
                         <h2 className='text-3xl md:text-4xl font-bold'>{roomName}</h2>
                         <Chip color="success" size='lg' className='font-bold'>0 Bookings</Chip>
                     </div>
-                    <p className='text-lg text-gray-600 pt-1'>{description}</p>
+                    <p className='text-lg text-gray-600 pt-2 text-justify'>{description}</p>
 
                 </div>
 
