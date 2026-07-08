@@ -11,7 +11,7 @@ const AllRoomsPage = async () => {
     return (
         <div className="container w-11/12 mx-auto pt-6 pb-8">
 
-            <h2 className="font-bold text-3xl text-center text-emerald-600 mt-4 mb-2 pb-4 animate-text-scale">
+            <h2 className="font-bold text-3xl md:text-4xl text-center text-emerald-600 mt-4 mb-2 pb-4 animate-text-scale">
                 ALL STUDY ROOMS
             </h2>
 
