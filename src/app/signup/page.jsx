@@ -36,6 +36,12 @@ const SignUpPage = () => {
         if (error) {
             toast.error("Ahh! Sign Up Failed! Please try again.")
         }
+    };
+
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: 'google',
+        })
     }
 
     return (
@@ -162,7 +168,7 @@ const SignUpPage = () => {
                         </div>
 
                         <Button
-                            // onClick={handleGoogleSignIn}
+                            onClick={handleGoogleSignIn}
                             variant='btn-outline' size='lg'
                             className="w-full border dark:bg-slate-600 bg-slate-50 rounded-lg py-2 flex items-center justify-center gap-2 mb-2">
                             <FcGoogle className='w-6 h-6'></FcGoogle>

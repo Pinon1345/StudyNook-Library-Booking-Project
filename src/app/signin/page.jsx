@@ -11,7 +11,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 const SignInPage = () => {
 
-     const [showPassword, setShowPassword] = useState(false); 
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -28,12 +28,18 @@ const SignInPage = () => {
 
         if (data) {
             toast.success("Congratulations! Sign In Successful!")
-            redirect('/all-rooms')
+            redirect('/')
         }
 
         if (error) {
-            toast.error("Ahh! Sign In Failed! Please try again later.")
+            toast.error("Invalid email or password! Please try again later.")
         }
+    }
+
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: 'google',
+        })
     }
 
     return (
@@ -139,7 +145,7 @@ const SignInPage = () => {
                         </div>
 
                         <Button
-                            // onClick={handleGoogleSignIn}
+                            onClick={handleGoogleSignIn}
                             variant='btn-outline' size='lg'
                             className="w-full border dark:bg-slate-600 bg-slate-50 rounded-lg py-2 flex items-center justify-center gap-2 mb-2">
                             <FcGoogle className='w-6 h-6'></FcGoogle>

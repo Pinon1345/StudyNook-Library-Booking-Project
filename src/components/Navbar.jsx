@@ -156,6 +156,7 @@ const Navbar = () => {
                                         <Dropdown.Trigger className="rounded-full">
                                             <Avatar>
                                                 <Avatar.Image
+                                                    referrerPolicy="no-referrer"
                                                     alt={user?.name}
                                                     src={user?.image}
                                                 />
@@ -168,6 +169,7 @@ const Navbar = () => {
                                                 <div className="flex items-center gap-2">
                                                     <Avatar size="sm mt-1">
                                                         <Avatar.Image
+                                                            referrerPolicy="no-referrer"
                                                             alt={user?.name}
                                                             src={user?.image}
                                                         />
@@ -363,6 +365,7 @@ const Navbar = () => {
                                             <Dropdown.Trigger className="rounded-full">
                                                 <Avatar>
                                                     <Avatar.Image
+                                                        referrerPolicy="no-referrer"
                                                         alt={user?.name}
                                                         src={user?.image}
                                                     />
@@ -375,6 +378,7 @@ const Navbar = () => {
                                                     <div className="flex items-center gap-2">
                                                         <Avatar size="sm mt-1">
                                                             <Avatar.Image
+                                                                referrerPolicy="no-referrer"
                                                                 alt={user?.name}
                                                                 src={user?.image}
                                                             />
