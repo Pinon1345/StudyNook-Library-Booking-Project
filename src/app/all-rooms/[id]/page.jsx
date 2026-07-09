@@ -1,3 +1,4 @@
+import BookingModalPage from '@/components/BookingModal';
 import { DeleteAlertDialogue } from '@/components/DeleteAlertDialogue';
 import { EditModal } from '@/components/EditModal';
 import { Avatar, Button, Chip } from '@heroui/react';
@@ -90,15 +91,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                         {/* Booking Button */}
 
-                        <Link
-                            href={'/'}
-                            className='block'
-                        >
-                            <Button className="flex items-center gap-1 btn btn-primary btn-float w-full mt-6 mb-2">
-                                <MdMeetingRoom></MdMeetingRoom>
-                                <h2>BOOK NOW</h2>
-                            </Button>
-                        </Link>
+                        <BookingModalPage></BookingModalPage>
 
                         {/* More Two Buttons */}
 
