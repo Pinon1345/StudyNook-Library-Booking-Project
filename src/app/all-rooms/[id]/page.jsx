@@ -91,7 +91,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                         {/* Booking Button */}
 
-                        <BookingModalPage></BookingModalPage>
+                        <BookingModalPage room={room}></BookingModalPage>
 
                         {/* More Two Buttons */}
 
