@@ -1,6 +1,7 @@
 import BookingModalPage from '@/components/BookingModal';
 import { DeleteAlertDialogue } from '@/components/DeleteAlertDialogue';
 import { EditModal } from '@/components/EditModal';
+import RoomOwnerActions from '@/components/RoomOwnerActions';
 import { Avatar, Button, Chip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,6 +16,8 @@ const RoomDetailsPage = async ({ params }) => {
 
     const res = await fetch(`http://localhost:5000/room/${id}`)
     const room = await res.json()
+
+    console.log(room);
 
     const {
         roomName,
@@ -95,17 +98,7 @@ const RoomDetailsPage = async ({ params }) => {
 
                         {/* More Two Buttons */}
 
-                        <div className='flex items-center justify-between mx-2 gap-4 mt-4 mb-2'>
-
-                            {/* Edit Button */}
-
-                            <EditModal room={room}></EditModal>
-
-                            {/* Delete Button */}
-
-                            <DeleteAlertDialogue room={room}></DeleteAlertDialogue>
-
-                        </div>
+                        <RoomOwnerActions room={room}></RoomOwnerActions>
 
                     </div>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from '@/lib/auth-client';
 import { Button, Card, FieldError, Input, Label, ListBox, TextArea, TextField, Select, Checkbox, CheckboxGroup } from '@heroui/react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -10,7 +11,12 @@ import { GiCheckMark } from 'react-icons/gi';
 
 const AddRoomPage = () => {
 
+    const { data: session } = authClient.useSession();
+
+    const user = session?.user;
+
     const [amenitiesError, setAmenitiesError] = useState("");
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -26,6 +32,10 @@ const AddRoomPage = () => {
         const room = Object.fromEntries(formData.entries());
 
         room.amenities = selectedAmenities;
+
+        room.userId = user?.id;
+        room.userName = user?.name;
+        room.userImage = user?.image;
 
         console.log(room);
 
