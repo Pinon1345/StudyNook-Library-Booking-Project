@@ -8,9 +8,17 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Dropdown, Label } from "@heroui/react";
 import { ArrowRightFromSquare, Gear, Persons } from "@gravity-ui/icons";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
+
+    const pathname = usePathname();
+
+    const navClass = (path) =>
+        `cursor-pointer transition-all duration-200 ${pathname === path
+            ? "text-emerald-600 dark:text-emerald-400 font-semibold"
+            : "hover:text-emerald-400"
+        }`;
 
     const {
         data: session,
@@ -77,7 +85,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/")}
                                         >
                                             Home
                                         </Link>
@@ -86,7 +94,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/all-rooms"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/all-rooms")}
                                         >
                                             Rooms
                                         </Link>
@@ -95,7 +103,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/add-room"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/add-room")}
                                         >
                                             Add Room
                                         </Link>
@@ -104,7 +112,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/my-listings"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/my-listings")}
                                         >
                                             My Listings
                                         </Link>
@@ -113,7 +121,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/my-bookings"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/my-bookings")}
                                         >
                                             My Bookings
                                         </Link>
@@ -124,7 +132,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/")}
                                         >
                                             Home
                                         </Link>
@@ -133,7 +141,7 @@ const Navbar = () => {
                                     <li>
                                         <Link
                                             href="/all-rooms"
-                                            className="hover:text-emerald-400 cursor-pointer"
+                                            className={navClass("/all-rooms")}
                                         >
                                             Rooms
                                         </Link>

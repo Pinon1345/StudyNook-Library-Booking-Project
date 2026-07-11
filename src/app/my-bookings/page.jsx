@@ -20,7 +20,7 @@ const MyBookingsPage = () => {
 
         if (!user?.id) return;
 
-        fetch(`http://localhost:5000/booking/${user.id}`)
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${user.id}`)
             .then(res => res.json())
             .then(data => setBookings(data));
 
@@ -36,7 +36,7 @@ const MyBookingsPage = () => {
         const { data: tokenData } = await authClient.token()
 
         const res = await fetch(
-            `http://localhost:5000/booking/${bookingId}/cancel`,
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${bookingId}/cancel`,
             {
                 method: "PATCH",
                 headers: {
