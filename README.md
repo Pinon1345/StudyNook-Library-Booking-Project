@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+* Project Name: **STUDYNOOK** || Library Room Bookings Platform
 
-First, run the development server:
+* Project builder: **FOURKAN BIN ILIAS (PINON)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# StudyNook
+StudyNook is a modern Full-Stack MERN Study Room Booking Platform that allows all kinds of students to discover, book and manage study rooms easily. This application provides secure authentication, real-time room availability, booking management, room listing and full responsive user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Live Website
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔗 Client Site: https://studynook-library-booking-project.vercel.app/
 
-## Learn More
+🔗 Server Site: https://study-nook-server-psi.vercel.app/
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Project Overview
 
-## Deploy on Vercel
+StudyNook helps students reserve study rooms efficiently. Users can browse available rooms, search and filter rooms, book study spaces, manage their bookings, and room owners can add and manage their own listings.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Purpose: 
+
+This project is created for educational purposes.
+
+
+# Features:
+
+## Authentication
+
+- Google Sign In
+- Email & Password Authentication
+- Secure Better Auth Authentication
+- Protected Routes
+- Persistent User Session
+
+## Room Management
+
+- View All Study Rooms
+- Room Details Page
+- Add New Study Room
+- Update Room Information
+- Delete Room
+- My Listings Page
+
+## Booking System
+
+- Book Available Rooms
+- Prevent Double Booking
+- View My Bookings
+- Cancel Booking
+- Booking Date Selection
+
+## Search & Filter
+
+- Search by Room Name
+- Search by Description
+- Search by Floor
+- Filter by Amenities
+
+## User Interface
+
+- Fully Responsive Design
+- Light & Dark Mode
+- Modern HeroUI Components
+- Smooth Animations
+- Dynamic Active Navbar
+- Dynamic Browser Tab Title
+
+---
+
+
+# Technologies Used
+
+### Frontend
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- HeroUI
+- React Icons
+- React Hot Toast
+- Better Auth Client
+- Gravity Icon
+
+### Backend
+
+- Node.js
+- Express.js
+- Atlas MongoDB
+- Better Auth
+- CORS
+- JOSE-CJS
+- Dotenv
+
+---
+
+
+##  Pages
+
+- Home,
+- All Rooms,
+- Room Details,
+- Add Room,
+- My Listings,
+- My Bookings,
+- Sign In,
+- Sign Up,
+- 404 Page,
+- Error,
+- Loading etc.
+
+---
+
+##  Responsive Design
+
+Full responsive for all small/medium/large devices. Such as:
+
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+
+---
+
+##  Protected Routes
+
+- Add Room
+- My Listings
+- My Bookings
+- Book Now
+- Update Details
+- Delete Room
+- Room Ownership
+
+---
+
+
+##  Author's Info.
+
+**Fourkan Bin Ilias (Pinon)**
+
+~ Full Stack Junior Web Developer. Live in Chittagong, Bangladesh.
