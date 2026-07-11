@@ -1,6 +1,4 @@
 import BookingModalPage from '@/components/BookingModal';
-import { DeleteAlertDialogue } from '@/components/DeleteAlertDialogue';
-import { EditModal } from '@/components/EditModal';
 import RoomOwnerActions from '@/components/RoomOwnerActions';
 import { auth } from '@/lib/auth';
 import { Avatar, Button, Chip } from '@heroui/react';
@@ -16,10 +14,19 @@ import { RxPeople } from 'react-icons/rx';
 const RoomDetailsPage = async ({ params }) => {
     const { id } = await params
 
+    // Finding JWT Token which is created in HTTP only Cookie for Server Component
+
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
     // Fetching room
 
     const res = await fetch(`http://localhost:5000/room/${id}`, {
         cache: "no-store",
+        headers: {
+            authorization: `Bearer ${token}`
+        }
     });
     const room = await res.json()
 

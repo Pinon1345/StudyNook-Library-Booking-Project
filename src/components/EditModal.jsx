@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField, Select } from "@heroui/react";
 import toast from "react-hot-toast";
@@ -29,10 +30,16 @@ export function EditModal({ room }) {
         const room = Object.fromEntries(formData.entries());
 
 
+        // JWT Protected Route
+
+        const { data: tokenData } = await authClient.token()
+
+
         const res = await fetch(`http://localhost:5000/room/${_id}`, {
             method: 'PATCH',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
 
             body: JSON.stringify(room)

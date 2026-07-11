@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -11,11 +12,17 @@ export function DeleteAlertDialogue({ room }) {
 
     const { _id, roomName } = room
 
+    // JWT Protected Route
+
     const handleDelete = async () => {
+
+        const { data: tokenData } = await authClient.token()
+
         const res = await fetch(`http://localhost:5000/room/${_id}`, {
             method: 'DELETE',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             }
         })
 

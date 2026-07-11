@@ -27,12 +27,21 @@ const MyBookingsPage = () => {
     }, [user]);
 
 
+
+    // JWT protected in booking cancel 
+
+
     const handleCancelBooking = async (bookingId) => {
+
+        const { data: tokenData } = await authClient.token()
 
         const res = await fetch(
             `http://localhost:5000/booking/${bookingId}/cancel`,
             {
                 method: "PATCH",
+                headers: {
+                    authorization: `Bearer ${tokenData?.token}`
+                }
             }
         );
 

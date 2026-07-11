@@ -8,6 +8,7 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Dropdown, Label } from "@heroui/react";
 import { ArrowRightFromSquare, Gear, Persons } from "@gravity-ui/icons";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
 
@@ -19,10 +20,16 @@ const Navbar = () => {
 
     const user = session?.user
     console.log(user);
-    
+
+
+    // after signOut redirect in home page
+
+    const router = useRouter();
+
 
     const handleSignOut = async () => {
         await authClient.signOut();
+        router.push("/");
     }
 
     const [isOpen, setIsOpen] = useState(false);
