@@ -2,7 +2,9 @@ import BookingModalPage from '@/components/BookingModal';
 import { DeleteAlertDialogue } from '@/components/DeleteAlertDialogue';
 import { EditModal } from '@/components/EditModal';
 import RoomOwnerActions from '@/components/RoomOwnerActions';
+import { auth } from '@/lib/auth';
 import { Avatar, Button, Chip } from '@heroui/react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -14,8 +16,22 @@ import { RxPeople } from 'react-icons/rx';
 const RoomDetailsPage = async ({ params }) => {
     const { id } = await params
 
-    const res = await fetch(`http://localhost:5000/room/${id}`)
+    // Fetching room
+
+    const res = await fetch(`http://localhost:5000/room/${id}`, {
+        cache: "no-store",
+    });
     const room = await res.json()
+
+    // Get Session
+
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    // Check Ownership
+
+    const isOwner = session?.user?.id === room.userId;
 
     console.log(room);
 
@@ -98,7 +114,10 @@ const RoomDetailsPage = async ({ params }) => {
 
                         {/* More Two Buttons */}
 
-                        <RoomOwnerActions room={room}></RoomOwnerActions>
+                        <RoomOwnerActions
+                            room={room}
+                            isOwner={isOwner}
+                        ></RoomOwnerActions>
 
                     </div>
 

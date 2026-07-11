@@ -105,7 +105,7 @@ const MyBookingsPage = () => {
 
                                     <Table.Body>
                                         {bookings.map((booking) => (
-                                            <Table.Row key={booking._id} className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                                            <Table.Row key={booking._id} className="border-t border-gray-200 hover:bg-gray-100 transition-colors">
 
                                                 {/* Room */}
 
@@ -114,8 +114,8 @@ const MyBookingsPage = () => {
                                                         <Image
                                                             src={booking.roomImage}
                                                             alt={booking.roomName}
-                                                            width={56}
-                                                            height={56}
+                                                            width={60}
+                                                            height={60}
                                                             className="rounded-lg object-cover shrink-0"
                                                         />
                                                         <h2 className="font-bold text-sm md:text-base line-clamp-1">

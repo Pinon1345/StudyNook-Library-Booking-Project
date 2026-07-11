@@ -1,18 +1,11 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
 import { EditModal } from "./EditModal";
 import { DeleteAlertDialogue } from "./DeleteAlertDialogue";
 
-const RoomOwnerActions = ({ room }) => {
+const RoomOwnerActions = ({ room, isOwner }) => {
 
-    const { data: session, isPending } = authClient.useSession();
-
-    if (isPending) return null;
-
-    const user = session?.user;
-
-    if (!user || room.userId !== user.id) {
+    if (!isOwner) {
         return null;
     }
 

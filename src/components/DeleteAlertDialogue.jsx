@@ -1,11 +1,14 @@
 "use client";
 
 import { AlertDialog, Button } from "@heroui/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { MdDeleteForever } from "react-icons/md";
 
 export function DeleteAlertDialogue({ room }) {
+
+    const router = useRouter();
+
     const { _id, roomName } = room
 
     const handleDelete = async () => {
@@ -22,7 +25,7 @@ export function DeleteAlertDialogue({ room }) {
 
         if (data) {
             toast.success("Successfully Delete Room!")
-            redirect('/all-rooms')
+            router.replace("/all-rooms");
         }
 
         else {

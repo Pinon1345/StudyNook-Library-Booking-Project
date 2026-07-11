@@ -29,7 +29,7 @@ export function CancelBookingDialogue({ bookingId, onCancel }) {
                         <AlertDialog.Footer>
 
                             <Button slot="close" variant="tertiary">
-                                No
+                                No, Maybe Later
                             </Button>
 
                             <Button
